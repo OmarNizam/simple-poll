@@ -23,11 +23,8 @@ pids
 lib-cov
 
 # Coverage directory used by tools like jest
-tests/unit/reports/coverage
+tests/
 *.lcov
-
-# Reports directory used by tools like testCafe
-tests/functional/reports/
 
 # Dependency directories
 node_modules/

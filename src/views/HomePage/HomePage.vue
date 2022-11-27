@@ -1,17 +1,20 @@
 <template>
-  <div class="container home-container">
+  <main class="container home-container">
     <h1>Home Page!</h1>
-    <HelloWorld />
-  </div>
+    <!-- Poll Form section -->
+    <section>
+      <PollForm />
+    </section>
+  </main>
 </template>
 
 <script>
-import HelloWorld from "../../components/HelloWorld/HelloWorld.vue";
+import PollForm from "@/components/PollForm/PollForm.vue";
 
 export default {
   name: "HomePage",
   components: {
-    HelloWorld,
+    PollForm,
   },
 };
 </script>

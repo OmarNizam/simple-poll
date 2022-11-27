@@ -30,7 +30,7 @@ module.exports = {
       statements: 80,
     },
   },
-  coverageDirectory: "./tests/unit/reports/coverage",
+  coverageDirectory: "coverage",
 
   setupFilesAfterEnv: ["./tests/unit/jest.setup.js"],
 

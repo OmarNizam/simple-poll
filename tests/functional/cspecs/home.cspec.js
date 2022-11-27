@@ -11,7 +11,7 @@ fixture(`Index page`)
 test('Home page title contains "Hello World!"', async (testController) => {
   // Select the paragraph element under the body.
   // Must use promises (async / await  here) for communication with the browser.
-  const titleSelector = await homePage.title;
+  const titleSelector = homePage.title;
 
   // Assert that the inner text of the paragraph is "Hello World!"
   await testController

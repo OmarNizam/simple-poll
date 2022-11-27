@@ -5,7 +5,7 @@ export default class HomePage {
     this.title = Selector('[test-dat-id="hello-title"]');
 
     this.testData = {
-      title: "Hello World Component",
+      title: "Poll-Form Component",
     };
   }
 }
