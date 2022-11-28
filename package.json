@@ -1,18 +1,21 @@
 {
   "name": "vue-single-app-template",
   "version": "0.1.0",
-  "author": "OmarNizam <eng.omarnizam@gmail.com>",
   "private": true,
+  "author": "OmarNizam <eng.omarnizam@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "ut": "vue-cli-service test:unit --coverage -u",
+    "lint": "vue-cli-service lint",
     "ft": "testcafe all tests/functional/cspecs/*.cspec.js --app \"npm run serve\" --app-init-delay 10000 -S -s tests/functional/reports/screenshots",
-    "lint": "vue-cli-service lint"
+    "start": "vue-cli-service serve --open",
+    "ut": "vue-cli-service test:unit --coverage -u"
   },
   "dependencies": {
-    "bootstrap": "^5.2.3",
+    "autoprefixer": "10.4.5",
+    "chart.js": "^3.9.1",
     "core-js": "^3.8.3",
+    "mdb-vue-ui-kit": "^3.1.1",
     "vue": "^3.2.13"
   },
   "devDependencies": {
@@ -33,6 +36,7 @@
     "prettier": "^2.4.1",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
-    "testcafe": "^2.1.0"
+    "testcafe": "^2.1.0",
+    "vue-cli-plugin-mdb5": "~1.2.0"
   }
 }
