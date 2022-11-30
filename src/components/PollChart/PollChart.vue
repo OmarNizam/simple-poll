@@ -8,7 +8,7 @@
 
 <script>
 import { mapState } from "pinia";
-import { useApplicationStore } from "@/stores/ApplicationStore";
+import { usePollStore } from "@/stores/PollStore";
 import { Chart, registerables } from "chart.js";
 
 Chart.register(...registerables);
@@ -16,7 +16,7 @@ Chart.register(...registerables);
 export default {
   name: "PollChart",
   computed: {
-    ...mapState(useApplicationStore, ["chartState"]),
+    ...mapState(usePollStore, ["chartState", "chartXValues"]),
   },
   async mounted() {
     this.createChart();
@@ -30,7 +30,7 @@ export default {
       new Chart(ctx, {
         type: "bar",
         data: {
-          labels: this.chartState.xValues,
+          labels: this.chartXValues,
           datasets: [
             {
               label: "Votes count",

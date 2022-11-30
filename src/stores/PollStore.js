@@ -1,9 +1,12 @@
 import { defineStore } from "pinia";
 
-export const useApplicationStore = defineStore("ApplicationStore", {
+export const usePollStore = defineStore("PollStore", {
   state: () => ({
+    question: "",
+    answers: [],
     chartState: {
-      xValues: ["Italy", "France", "Spain", "USA", "Argentina", "Syria"],
+      // xValues: ["Italy", "France", "Spain", "USA", "Argentina", "Syria"],
+      xValues: [""],
       yValues: [44, 25, 32, 19, 29, 9],
       backgroundColor: [
         "rgba(255, 99, 132, 0.2)",
@@ -27,9 +30,16 @@ export const useApplicationStore = defineStore("ApplicationStore", {
     },
   }),
   getters: {
-    // clientsCount(state) {
-    //   return state.clients.length;
-    // },
+    chartXValues(state) {
+      return state.chartState.xValues.map((x) => Object.values(x)[0]);
+    },
   },
-  actions: {},
+  actions: {
+    setQuestion(newQuestion) {
+      this.question = newQuestion;
+    },
+    setOptions(newOptionsArr) {
+      this.chartState.xValues = newOptionsArr;
+    },
+  },
 });
