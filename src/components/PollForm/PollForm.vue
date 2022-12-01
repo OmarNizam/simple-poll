@@ -12,40 +12,51 @@
           placeholder="Enter your question"
           aria-label="Question input"
           id="question-input"
+          :maxlength="max"
           v-model="question"
           @input="handleQuestion"
           @change="handleQuestion"
-          @keypress.enter="addOption"
+          required
         />
+        <span class="text-danger" v-if="msg.question">{{ msg.question }}</span>
       </div>
       <!-- Options Input -->
-      <label for="answer-input" class="form-label">Poll Options:</label>
-      <div class="d-flex mb-3" v-for="(input, k) of inputs" :key="k">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter your option"
-          aria-label="Option input"
-          id="question-input"
-          v-model="input.option"
-          @input="handleOption"
-          @keypress.enter="addOption"
-        />
-        <button
-          type="submit"
-          class="btn ms-2"
-          @click="addOption"
-          v-show="k === inputs.length - 1"
-        >
-          <ion-icon
-            id="add-icon"
-            name="add-circle-outline"
-            size="large"
-          ></ion-icon>
-        </button>
-        <button class="btn" @click="removeOption(k)" v-show="k < inputs.length">
-          <ion-icon name="trash-outline" size="large"></ion-icon>
-        </button>
+      <label for="answer-input" class="form-label mt-1 mb-0"
+        >Poll Options:</label
+      >
+      <div v-for="(input, k) of inputs" :key="k">
+        <div class="d-flex pt-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your option"
+            aria-label="Option input"
+            id="question-input"
+            :maxlength="max"
+            v-model="input.option"
+            @input="handleOption"
+          />
+          <button
+            type="submit"
+            class="btn ms-2"
+            @click="addOption"
+            v-show="k === inputs.length - 1"
+          >
+            <ion-icon
+              id="add-icon"
+              name="add-circle-outline"
+              size="large"
+            ></ion-icon>
+          </button>
+          <button
+            class="btn"
+            @click="removeOption(k)"
+            v-show="k < inputs.length && k != 0 && k != 1"
+          >
+            <ion-icon name="trash-outline" size="large"></ion-icon>
+          </button>
+        </div>
+        <span class="text-danger" v-if="msg.question">{{ msg.question }}</span>
       </div>
       <!-- </form> -->
     </div>
@@ -60,13 +71,27 @@ export default {
   name: "PollForm",
   data() {
     return {
+      max: 10,
+      msg: [],
       question: "",
       inputs: [
         {
-          option: "",
+          option: "option1",
+        },
+        {
+          option: "option2",
         },
       ],
     };
+  },
+  watch: {
+    question(value) {
+      this.question = value;
+      this.validateInput(value);
+    },
+  },
+  mounted() {
+    this.handleOption();
   },
   methods: {
     ...mapActions(usePollStore, ["setQuestion", "setOptions"]),
@@ -87,6 +112,12 @@ export default {
 
     handleOption() {
       this.setOptions(this.inputs);
+    },
+
+    validateInput(value) {
+      value.length >= 10
+        ? (this.msg["question"] = "You reach the max limit 80!")
+        : (this.msg["question"] = "");
     },
   },
 };
