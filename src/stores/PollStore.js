@@ -5,9 +5,9 @@ export const usePollStore = defineStore("PollStore", {
     question: "",
     answers: [],
     chartState: {
-      // xValues: ["Italy", "France", "Spain", "USA", "Argentina", "Syria"],
-      xValues: [""],
+      xValues: [],
       yValues: [44, 25, 32, 19, 29, 9],
+      label: "Votes count",
       backgroundColor: [
         "rgba(255, 99, 132, 0.2)",
         "rgba(255, 159, 64, 0.2)",

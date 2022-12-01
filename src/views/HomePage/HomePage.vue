@@ -18,7 +18,7 @@
       </section>
       <!-- Poll Chart section -->
       <section class="col-md-4 p-1 p-md-0 text-center">
-        <PollChart />
+        <PollChart ref="bar" />
       </section>
     </div>
     <!-- Mobile -->

@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <!-- <h1>{{ this.question }}</h1> -->
+      <h1>{{ this.question }}</h1>
 
       <h1>
         {{ chartXValues }}

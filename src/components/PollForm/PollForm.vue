@@ -15,6 +15,7 @@
           v-model="question"
           @input="handleQuestion"
           @change="handleQuestion"
+          @keypress.enter="addOption"
         />
       </div>
       <!-- Options Input -->
@@ -28,6 +29,7 @@
           id="question-input"
           v-model="input.option"
           @input="handleOption"
+          @keypress.enter="addOption"
         />
         <button
           type="submit"
@@ -54,8 +56,6 @@
 import { mapActions } from "pinia";
 import { usePollStore } from "@/stores/PollStore";
 
-// const pollStore = usePollStore();
-
 export default {
   name: "PollForm",
   data() {
@@ -79,16 +79,14 @@ export default {
       this.inputs.push({ option: "" });
       this.handleOption();
     },
+
     removeOption(index) {
       this.inputs.splice(index, 1);
       this.handleOption();
     },
 
     handleOption() {
-      // const newArr = this.inputs.map((item) => {
-      //   return item.option;
-      // });
-      this.setOptions(Object.values(this.inputs));
+      this.setOptions(this.inputs);
     },
   },
 };

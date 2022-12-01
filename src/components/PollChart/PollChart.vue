@@ -1,7 +1,12 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <canvas id="poll-chart"></canvas>
+      <Bar
+        :chart-options="chartOptions"
+        :chart-data="chartData"
+        :width="width"
+        :height="height"
+      />
     </div>
   </div>
 </template>
@@ -9,51 +14,63 @@
 <script>
 import { mapState } from "pinia";
 import { usePollStore } from "@/stores/PollStore";
-import { Chart, registerables } from "chart.js";
+import { Bar } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
 
-Chart.register(...registerables);
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+);
 
 export default {
   name: "PollChart",
+  components: {
+    Bar,
+  },
+  props: {
+    width: {
+      type: Number,
+      default: 400,
+    },
+    height: {
+      type: Number,
+      default: 400,
+    },
+  },
   computed: {
     ...mapState(usePollStore, ["chartState", "chartXValues"]),
-  },
-  async mounted() {
-    this.createChart();
-  },
-  methods: {
-    /**
-     * createChart method create new Chart getting data from chartState
-     */
-    createChart() {
-      const ctx = document.getElementById("poll-chart");
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: this.chartXValues,
-          datasets: [
-            {
-              label: "Votes count",
-              backgroundColor: this.chartState.backgroundColor,
-              borderColor: this.chartState.borderColor,
-              borderWidth: this.chartState.borderWidth,
-              data: this.chartState.yValues,
-            },
-          ],
-        },
-        options: {
-          legend: { display: false },
-          title: {
-            display: true,
-            text: "Simple poll chart bar 2022",
+    // Compute chart data from store
+    chartData() {
+      return {
+        labels: this.chartXValues,
+        datasets: [
+          {
+            label: this.chartState.label,
+            data: this.chartState.yValues,
+            backgroundColor: this.chartState.backgroundColor,
+            borderColor: this.chartState.borderColor,
+            borderWidth: this.chartState.borderWidth,
           },
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
+        ],
+      };
+    },
+    // Compute chart options
+    chartOptions() {
+      return {
+        responsive: true,
+      };
     },
   },
 };
