@@ -60,14 +60,15 @@
           {{ msg.option }}
         </span>
       </div>
-      <div class="d-flex justify-content-end">
-        <button class="btn mt-2" @click="reset">
+      <div class="d-flex justify-content-between mt-2">
+        <button class="btn" @click="reset">
           <ion-icon
             id="reset-icon"
             name="refresh-circle-outline"
             size="large"
           ></ion-icon>
         </button>
+        <p class="mb-0 mt-2 me-3">{{ chartXValuesLength }}/10</p>
       </div>
     </div>
   </div>
@@ -110,7 +111,7 @@ export default {
     this.handleOption();
   },
   computed: {
-    ...mapState(usePollStore, ["chartXValues"]),
+    ...mapState(usePollStore, ["chartXValues", "chartXValuesLength"]),
   },
   methods: {
     ...mapActions(usePollStore, ["setQuestion", "setOptions", "resetYValues"]),

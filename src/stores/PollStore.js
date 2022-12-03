@@ -39,6 +39,9 @@ export const usePollStore = defineStore("PollStore", {
     chartXValues(state) {
       return state.chartState.xValues.map((x) => Object.values(x)[0]);
     },
+    chartXValuesLength() {
+      return this.chartXValues.length;
+    },
   },
   actions: {
     setQuestion(newQuestion) {
