@@ -40,6 +40,7 @@
           <button
             class="btn ms-2"
             @click="addOption"
+            :disabled="chartXValues.length > 9"
             v-show="k === options.length - 1"
           >
             <ion-icon
@@ -61,7 +62,7 @@
         </span>
       </div>
       <div class="d-flex justify-content-end">
-        <button class="btn mt-2" @click="clearOption">
+        <button class="btn mt-2" @click="reset">
           <ion-icon
             id="reset-icon"
             name="refresh-circle-outline"
@@ -74,7 +75,7 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
+import { mapState, mapActions } from "pinia";
 import { usePollStore } from "@/stores/PollStore";
 
 export default {
@@ -109,15 +110,18 @@ export default {
   mounted() {
     this.handleOption();
   },
+  computed: {
+    ...mapState(usePollStore, ["chartXValues"]),
+  },
   methods: {
-    ...mapActions(usePollStore, ["setQuestion", "setOptions"]),
+    ...mapActions(usePollStore, ["setQuestion", "setOptions", "resetYValues"]),
 
     handleQuestion() {
       this.setQuestion(this.question);
     },
 
     addOption() {
-      this.options.push({ option: "" });
+      if (this.chartXValues.length <= 10) this.options.push({ option: "" });
       this.handleOption();
     },
 
@@ -130,7 +134,7 @@ export default {
       this.setOptions(this.options);
     },
 
-    clearOption() {
+    reset() {
       this.options = [
         {
           option: "option-1",
@@ -140,6 +144,7 @@ export default {
         },
       ];
       this.handleOption();
+      this.resetYValues();
     },
 
     validateInput(value, inputType) {

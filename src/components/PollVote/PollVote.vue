@@ -10,27 +10,40 @@
         :key="k"
       >
         <input
+          :id="`optionRadio-${k}`"
           class="form-check-input"
           type="radio"
           name="optionRadio"
-          id="optionRadio"
+          :value="`${k}`"
+          v-model="choiceIndex"
         />
-        <label class="form-check-label" for="optionRadio">
+        <label class="form-check-label" :for="`optionRadio-${k}`">
           {{ input }}
         </label>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn mt-2" @click="vote(choiceIndex)">Vote</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "pinia";
+import { mapState, mapActions } from "pinia";
 import { usePollStore } from "@/stores/PollStore";
 
 export default {
   name: "PollVote",
+  data() {
+    return {
+      choiceIndex: "",
+    };
+  },
   computed: {
     ...mapState(usePollStore, ["question", "chartXValues"]),
+  },
+  methods: {
+    ...mapActions(usePollStore, ["vote"]),
   },
 };
 </script>
