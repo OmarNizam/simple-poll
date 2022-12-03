@@ -2,77 +2,73 @@
   <div class="card">
     <div class="card-body">
       <p test-dat-id="hello-title">Poll-Form Component</p>
-      <form>
-        <!-- Question Input -->
-        <div class="mb-3">
-          <label for="question-input" class="form-label">Poll Question:</label>
+      <!-- Question Input -->
+      <div class="mb-3">
+        <label for="question-input" class="form-label">Poll Question:</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your question"
+          aria-label="Question input"
+          id="question-input"
+          :maxlength="max"
+          v-model="question"
+          @input="handleQuestion"
+          required
+        />
+        <span class="text-danger" v-if="msg.question">
+          {{ msg.question }}
+        </span>
+      </div>
+      <!-- Options Input -->
+      <label for="answer-input" class="form-label mt-1 mb-0"
+        >Poll Options:</label
+      >
+      <div v-for="(input, k) of options.slice(0, 10)" :key="k">
+        <div class="d-flex pt-3">
           <input
             type="text"
             class="form-control"
-            placeholder="Enter your question"
-            aria-label="Question input"
+            placeholder="Enter your option"
+            aria-label="Option input"
             id="question-input"
             :maxlength="max"
-            v-model="question"
-            @input="handleQuestion"
-            @change="handleQuestion"
+            v-model="input.option"
+            @input="handleOption"
             required
           />
-          <span class="text-danger" v-if="msg.question">
-            {{ msg.question }}
-          </span>
-        </div>
-        <!-- Options Input -->
-        <label for="answer-input" class="form-label mt-1 mb-0"
-          >Poll Options:</label
-        >
-        <div v-for="(input, k) of options" :key="k">
-          <div class="d-flex pt-3">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter your option"
-              aria-label="Option input"
-              id="question-input"
-              :maxlength="max"
-              v-model="input.option"
-              @input="handleOption"
-              required
-            />
-            <button
-              type="submit"
-              class="btn ms-2"
-              @click="addOption"
-              v-show="k === options.length - 1"
-            >
-              <ion-icon
-                id="add-icon"
-                name="add-circle-outline"
-                size="large"
-              ></ion-icon>
-            </button>
-            <button
-              class="btn"
-              @click="removeOption(k)"
-              v-show="k < options.length && k != 0 && k != 1"
-            >
-              <ion-icon name="trash-outline" size="large"></ion-icon>
-            </button>
-          </div>
-          <span class="text-danger" v-if="msg.option && k === optionIndex">
-            {{ msg.option }}
-          </span>
-        </div>
-        <div class="d-flex justify-content-end">
-          <button type="submit" class="btn mt-2" @click="addOption">
+          <button
+            class="btn ms-2"
+            @click="addOption"
+            v-show="k === options.length - 1"
+          >
             <ion-icon
-              id="reset-icon"
-              name="refresh-circle-outline"
+              id="add-icon"
+              name="add-circle-outline"
               size="large"
             ></ion-icon>
           </button>
+          <button
+            class="btn"
+            @click="removeOption(k)"
+            v-show="k < options.length && k != 0 && k != 1"
+          >
+            <ion-icon name="trash-outline" size="large"></ion-icon>
+          </button>
         </div>
-      </form>
+        <span class="text-danger" v-if="msg.option && k === optionIndex">
+          {{ msg.option }}
+        </span>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn mt-2">
+          <ion-icon
+            id="reset-icon"
+            name="refresh-circle-outline"
+            size="large"
+          ></ion-icon>
+        </button>
+      </div>
     </div>
   </div>
 </template>
