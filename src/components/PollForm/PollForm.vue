@@ -37,7 +37,7 @@
             required
           />
           <button
-            class="btn ms-2"
+            class="btn ms-2 bg-success"
             @click="addOption"
             :disabled="chartXValues.length > 9"
             v-show="k === options.length - 1"
@@ -46,14 +46,19 @@
               id="add-icon"
               name="add-circle-outline"
               size="large"
+              color="light"
             ></ion-icon>
           </button>
           <button
-            class="btn"
+            class="btn bg-danger"
             @click="removeOption(k)"
             v-show="k < options.length && k != 0 && k != 1"
           >
-            <ion-icon name="trash-outline" size="large"></ion-icon>
+            <ion-icon
+              name="trash-outline"
+              size="large"
+              color="light"
+            ></ion-icon>
           </button>
         </div>
         <span class="text-danger" v-if="msg.option && k === optionIndex">
@@ -61,11 +66,12 @@
         </span>
       </div>
       <div class="d-flex justify-content-between mt-2">
-        <button class="btn" @click="reset">
+        <button class="btn bg-info" @click="reset">
           <ion-icon
             id="reset-icon"
             name="refresh-circle-outline"
             size="large"
+            color="light"
           ></ion-icon>
         </button>
         <p class="mb-0 mt-2 me-3">{{ chartXValuesLength }}/10</p>
