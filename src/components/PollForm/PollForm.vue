@@ -3,12 +3,18 @@
     <div class="card-body">
       <!-- Question Input -->
       <div class="mb-3">
-        <label for="question-input" class="form-label">Poll Question:</label>
+        <label
+          test-data-id="question-input-label"
+          for="question-input"
+          class="form-label"
+          >Poll Question:</label
+        >
         <input
           type="text"
           class="form-control"
           placeholder="Enter your question"
           aria-label="Question input"
+          test-data-id="question-input"
           id="question-input"
           :maxlength="max"
           v-model="question"

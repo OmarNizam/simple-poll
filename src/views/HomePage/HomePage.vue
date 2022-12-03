@@ -2,7 +2,11 @@
   <main>
     <div class="container">
       <div class="row text-center">
-        <div><h1 class="text-light py-4">Create Simple Poll!</h1></div>
+        <div>
+          <h1 test-data-id="title" class="text-light py-4">
+            Create Simple Poll!
+          </h1>
+        </div>
       </div>
       <!-- Desktop -->
       <div class="d-lg-flex w-auto" style="height: 100vh">

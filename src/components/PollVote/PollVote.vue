@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body">
       <h5>Question:</h5>
-      <p>{{ this.question }}</p>
+      <p test-data-id="question-text">{{ this.question }}</p>
 
       <div
         class="d-flex form-check justify-content-start align-items-center"
@@ -22,7 +22,12 @@
         </label>
       </div>
       <div class="d-flex justify-content-end">
-        <button class="btn mt-2" @click="vote(choiceIndex)">Vote</button>
+        <button
+          class="btn mt-2 bg-success text-light"
+          @click="vote(choiceIndex)"
+        >
+          Vote
+        </button>
       </div>
     </div>
   </div>
