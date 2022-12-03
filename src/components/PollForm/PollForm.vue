@@ -1,7 +1,6 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <p test-dat-id="hello-title">Poll-Form Component</p>
       <!-- Question Input -->
       <div class="mb-3">
         <label for="question-input" class="form-label">Poll Question:</label>

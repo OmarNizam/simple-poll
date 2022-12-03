@@ -1,8 +1,8 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h4>Question:</h4>
-      <h5>{{ this.question }}</h5>
+      <h5>Question:</h5>
+      <p>{{ this.question }}</p>
 
       <div
         class="d-flex form-check justify-content-start align-items-center"
