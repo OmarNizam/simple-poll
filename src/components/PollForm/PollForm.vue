@@ -61,7 +61,7 @@
         </span>
       </div>
       <div class="d-flex justify-content-end">
-        <button class="btn mt-2">
+        <button class="btn mt-2" @click="clearOption">
           <ion-icon
             id="reset-icon"
             name="refresh-circle-outline"
@@ -128,6 +128,18 @@ export default {
 
     handleOption() {
       this.setOptions(this.options);
+    },
+
+    clearOption() {
+      this.options = [
+        {
+          option: "option-1",
+        },
+        {
+          option: "option-2",
+        },
+      ];
+      this.handleOption();
     },
 
     validateInput(value, inputType) {
