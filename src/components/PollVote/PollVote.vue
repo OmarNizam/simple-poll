@@ -1,11 +1,24 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h1>{{ this.question }}</h1>
+      <h4>Question:</h4>
+      <h5>{{ this.question }}</h5>
 
-      <h1>
-        {{ chartXValues }}
-      </h1>
+      <div
+        class="d-flex form-check justify-content-start align-items-center"
+        v-for="(input, k) of chartXValues"
+        :key="k"
+      >
+        <input
+          class="form-check-input"
+          type="radio"
+          name="optionRadio"
+          id="optionRadio"
+        />
+        <label class="form-check-label" for="optionRadio">
+          {{ input }}
+        </label>
+      </div>
     </div>
   </div>
 </template>
