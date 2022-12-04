@@ -30,11 +30,9 @@
         </span>
       </div>
       <!-- Options Input -->
-      <label for="answer-input" class="form-label mt-1 mb-0"
-        >Poll Options:</label
-      >
+      <label for="answer-input" class="form-label">Poll Options:</label>
       <div v-for="(input, k) of options.slice(0, 10)" :key="k">
-        <div test-data-id="options-input" class="d-flex pt-3">
+        <div test-data-id="options-input" class="d-flex pb-3">
           <input
             type="text"
             class="form-control"
@@ -61,6 +59,7 @@
             ></ion-icon>
           </button>
           <button
+            :test-data-id="`delete-button-option-${k}`"
             class="btn bg-danger"
             @click="removeOption(k)"
             v-show="k < options.length && k != 0 && k != 1"
@@ -80,7 +79,7 @@
           {{ msg.option }}
         </span>
       </div>
-      <div class="d-flex justify-content-between mt-2">
+      <div class="d-flex justify-content-between">
         <button class="btn bg-info" @click="reset">
           <ion-icon
             id="reset-icon"
@@ -105,7 +104,7 @@ export default {
     return {
       max: 80,
       msg: [],
-      optionIndex: 0,
+      optionIndex: null,
       question: "",
       options: [
         {

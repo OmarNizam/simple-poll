@@ -105,11 +105,6 @@ test("Should input option text with max 80 characters expect to see error valida
     .eql(homePage.testData.option2InputValidationErrText);
 });
 
-// A fixture must be created for each group of tests.
-fixture(`test with out skip`)
-  // Load the URL your development server runs on.
-  .page(homePage.HomePageUrl);
-
 test("Should click on add option button and fill in the third option and expect to see the option in VoteForm component", async (t) => {
   const options3InputSelector = homePage.options3Input;
   const addButtonOption2Selector = homePage.addButtonOption2;
@@ -123,4 +118,32 @@ test("Should click on add option button and fill in the third option and expect 
   await t
     .expect(option3LabelSelector.innerText)
     .eql(homePage.testData.option3LabelText);
+});
+
+test("Should click on add 2 options and delete one of them and expect result in VoteForm component", async (t) => {
+  const options3InputSelector = homePage.options3Input;
+  const addButtonOption2Selector = homePage.addButtonOption2;
+  const option3LabelSelector = homePage.option3Label;
+  const addButtonOption3Selector = homePage.addButtonOption3;
+  const options4InputSelector = homePage.options4Input;
+  const option4LabelSelector = homePage.option4Label;
+  const deleteButtonOption3Selector = homePage.deleteButtonOption3;
+
+  await t
+    .click(addButtonOption2Selector)
+    .click(options3InputSelector)
+    .typeText(options3InputSelector, "SASS")
+    .click(addButtonOption3Selector)
+    .typeText(options4InputSelector, "HTML");
+
+  await t
+    .expect(option3LabelSelector.innerText)
+    .eql(homePage.testData.option3LabelText)
+    .expect(option4LabelSelector.innerText)
+    .eql(homePage.testData.option4LabelText);
+
+  await t
+    .click(deleteButtonOption3Selector)
+    .expect(option3LabelSelector.innerText)
+    .notEql(homePage.testData.option3LabelText);
 });
