@@ -20,21 +20,48 @@ export default class HomePage {
 
     // Options Inputs
     this.optionsInput = Selector('[test-data-id="options-input"]');
+    this.options1Input = this.optionsInput.nth(0);
+    this.options2Input = this.optionsInput.nth(1);
     this.options3Input = this.optionsInput.nth(2);
     this.options4Input = this.optionsInput.nth(3);
+    this.options5Input = this.optionsInput.nth(4);
+    this.options6Input = this.optionsInput.nth(5);
+    this.options7Input = this.optionsInput.nth(6);
+    this.options8Input = this.optionsInput.nth(7);
+    this.options9Input = this.optionsInput.nth(8);
+    this.options10Input = this.optionsInput.nth(9);
 
     // Options Labels
+    this.option1Label = Selector('[test-data-id="option-label-0"]');
+    this.option2Label = Selector('[test-data-id="option-label-1"]');
     this.option3Label = Selector('[test-data-id="option-label-2"]');
     this.option4Label = Selector('[test-data-id="option-label-3"]');
+    this.option5Label = Selector('[test-data-id="option-label-4"]');
+    this.option6Label = Selector('[test-data-id="option-label-5"]');
+    this.option7Label = Selector('[test-data-id="option-label-6"]');
+    this.option8Label = Selector('[test-data-id="option-label-7"]');
+    this.option9Label = Selector('[test-data-id="option-label-8"]');
+    this.option10Label = Selector('[test-data-id="option-label-9"]');
 
     // Add Buttons
     this.addButtonOption2 = Selector('[test-data-id="add-button-option-1"]');
     this.addButtonOption3 = Selector('[test-data-id="add-button-option-2"]');
+    this.addButtonOption4 = Selector('[test-data-id="add-button-option-3"]');
+    this.addButtonOption5 = Selector('[test-data-id="add-button-option-4"]');
+    this.addButtonOption6 = Selector('[test-data-id="add-button-option-5"]');
+    this.addButtonOption7 = Selector('[test-data-id="add-button-option-6"]');
+    this.addButtonOption8 = Selector('[test-data-id="add-button-option-7"]');
+    this.addButtonOption9 = Selector('[test-data-id="add-button-option-8"]');
+    this.addButtonOption10 = Selector('[test-data-id="add-button-option-9"]');
 
     // Delete Buttons
     this.deleteButtonOption3 = Selector(
       '[test-data-id="delete-button-option-2"]'
     );
+
+    // Reset Button
+
+    this.resetButton = Selector('[test-data-id="reset-button"]');
 
     // test data
 
@@ -44,8 +71,13 @@ export default class HomePage {
       questionInputLabelText: "Poll Question:",
       questionInputValidationErrText: "You reach the max limit 80!",
       option2InputValidationErrText: "You reach the max limit 80! for option 2",
+      option1LabelDeafultText: "option-1",
+      option2LabelDeafultText: "option-2",
+      option1LabelText: "Java Script",
+      option2LabelText: "HTML",
       option3LabelText: "SASS",
       option4LabelText: "HTML",
+      option10LabelText: "Last option",
     };
   }
 }

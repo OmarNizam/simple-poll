@@ -80,7 +80,7 @@
         </span>
       </div>
       <div class="d-flex justify-content-between">
-        <button class="btn bg-info" @click="reset">
+        <button test-data-id="reset-button" class="btn bg-info" @click="reset">
           <ion-icon
             id="reset-icon"
             name="refresh-circle-outline"

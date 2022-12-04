@@ -147,3 +147,96 @@ test("Should click on add 2 options and delete one of them and expect result in 
     .expect(option3LabelSelector.innerText)
     .notEql(homePage.testData.option3LabelText);
 });
+
+test("Should be able to add options max 10", async (t) => {
+  const addButtonOption2Selector = homePage.addButtonOption2;
+  const addButtonOption3Selector = homePage.addButtonOption3;
+  const addButtonOption4Selector = homePage.addButtonOption4;
+  const addButtonOption5Selector = homePage.addButtonOption5;
+  const addButtonOption6Selector = homePage.addButtonOption6;
+  const addButtonOption7Selector = homePage.addButtonOption7;
+  const addButtonOption8Selector = homePage.addButtonOption8;
+  const addButtonOption9Selector = homePage.addButtonOption9;
+  const addButtonOption10Selector = homePage.addButtonOption10;
+  const options10InputSelector = homePage.options10Input;
+
+  await t
+    .click(addButtonOption2Selector)
+    .click(addButtonOption3Selector)
+    .click(addButtonOption4Selector)
+    .click(addButtonOption5Selector)
+    .click(addButtonOption6Selector)
+    .click(addButtonOption7Selector)
+    .click(addButtonOption8Selector)
+    .click(addButtonOption9Selector)
+    .click(addButtonOption10Selector);
+
+  await t
+    .expect(options10InputSelector.child(2).exists)
+    .ok()
+    .expect(addButtonOption10Selector.getStyleProperty("opacity"))
+    .eql("0.65")
+    .expect(addButtonOption10Selector.hasAttribute("disabled"))
+    .ok();
+});
+
+test("Should add optioons then click on reset button expect the defalut values come back", async (t) => {
+  const addButtonOption2Selector = homePage.addButtonOption2;
+  const addButtonOption3Selector = homePage.addButtonOption3;
+  const addButtonOption4Selector = homePage.addButtonOption4;
+  const addButtonOption5Selector = homePage.addButtonOption5;
+  const addButtonOption6Selector = homePage.addButtonOption6;
+  const addButtonOption7Selector = homePage.addButtonOption7;
+  const addButtonOption8Selector = homePage.addButtonOption8;
+  const addButtonOption9Selector = homePage.addButtonOption9;
+  const options10InputSelector = homePage.options10Input;
+  const option10LabelSelector = homePage.option10Label;
+  const options1InputSelector = homePage.options1Input;
+  const option1LabelSelector = homePage.option1Label;
+  const options2InputSelector = homePage.options2Input;
+  const option2LabelSelector = homePage.option2Label;
+  const resetButtonSelector = homePage.resetButton;
+
+  await t
+    .click(options1InputSelector)
+    .pressKey(
+      "backspace backspace backspace backspace backspace backspace backspace backspace"
+    )
+    .typeText(options1InputSelector, "Java Script")
+    .click(addButtonOption2Selector)
+    .click(options2InputSelector)
+    .pressKey(
+      "backspace backspace backspace backspace backspace backspace backspace backspace"
+    )
+    .typeText(options2InputSelector, "HTML")
+    .click(addButtonOption3Selector)
+    .click(addButtonOption4Selector)
+    .click(addButtonOption5Selector)
+    .click(addButtonOption6Selector)
+    .click(addButtonOption7Selector)
+    .click(addButtonOption8Selector)
+    .click(addButtonOption9Selector)
+    .click(options10InputSelector)
+    .pressKey(
+      "backspace backspace backspace backspace backspace backspace backspace backspace"
+    )
+    .typeText(options10InputSelector, "Last option")
+    .expect(option1LabelSelector.innerText)
+    .eql(homePage.testData.option1LabelText)
+    .expect(option2LabelSelector.innerText)
+    .eql(homePage.testData.option2LabelText)
+    .expect(option10LabelSelector.innerText)
+    .eql(homePage.testData.option10LabelText);
+
+  await t
+    .click(resetButtonSelector)
+    .expect(option1LabelSelector.innerText)
+    .eql(homePage.testData.option1LabelDeafultText)
+    .expect(option2LabelSelector.innerText)
+    .eql(homePage.testData.option2LabelDeafultText);
+});
+
+// A fixture must be created for each group of tests.
+// fixture(`test without skip`)
+// Load the URL your development server runs on.
+// .page(homePage.HomePageUrl);
