@@ -7,7 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "ft": "testcafe all tests/functional/cspecs/*.cspec.js --app \"npm run serve\" --app-init-delay 10000 -S -s tests/functional/reports/screenshots",
+    "ft": "testcafe all tests/functional/cspecs/*.cspec.js --app \"npm run serve\" --app-init-delay 15000 -S -s tests/functional/reports/screenshots",
     "start": "vue-cli-service serve --open",
     "ut": "vue-cli-service test:unit --coverage -u"
   },
