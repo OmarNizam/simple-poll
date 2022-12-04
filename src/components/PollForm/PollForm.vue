@@ -46,7 +46,7 @@
           />
           <button
             :test-data-id="`add-button-option-${k}`"
-            class="btn ms-2 bg-success"
+            class="btn ms-1 bg-success"
             @click="addOption"
             :disabled="chartXValues.length > 9"
             v-show="k === options.length - 1"
