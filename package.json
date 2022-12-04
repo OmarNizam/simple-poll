@@ -9,7 +9,8 @@
     "lint": "vue-cli-service lint",
     "ft": "testcafe all tests/functional/cspecs/*.cspec.js --app \"npm run serve\" --app-init-delay 15000 -S -s tests/functional/reports/screenshots",
     "start": "vue-cli-service serve --open",
-    "ut": "vue-cli-service test:unit --coverage -u"
+    "ut": "vue-cli-service test:unit --coverage -u",
+    "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
     "@pinia/testing": "^0.0.14",
