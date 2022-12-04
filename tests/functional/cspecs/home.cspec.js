@@ -17,7 +17,7 @@ test('Home page title contains "Create Simple Poll!"', async (t) => {
 });
 
 // A fixture must be created for each group of tests.
-fixture(`1- Poll Form Comonent`)
+fixture(`1- Poll Form Comonent interacting with PollVote component:`)
   // Load the URL your development server runs on.
   .page(homePage.HomePageUrl);
 
@@ -237,6 +237,52 @@ test("Should add optioons then click on reset button expect the defalut values c
 });
 
 // A fixture must be created for each group of tests.
-// fixture(`test without skip`)
-// Load the URL your development server runs on.
-// .page(homePage.HomePageUrl);
+fixture(
+  `2- All 3 components "PollForm" "PollVote" "PollChart" interacting with each other:`
+)
+  // Load the URL your development server runs on.
+  .page(homePage.HomePageUrl);
+
+test("Should enter question then fill options then choose option then vote", async (t) => {
+  console.log(`------ See the voting results on PollChart component ------- `);
+
+  const questionInputSelector = homePage.questionInput;
+  const options1InputSelector = homePage.options1Input;
+  const option1LabelSelector = homePage.option1Label;
+  const options2InputSelector = homePage.options2Input;
+  const option2LabelSelector = homePage.option2Label;
+  const addButtonOption2Selector = homePage.addButtonOption2;
+  const options3InputSelector = homePage.options3Input;
+  const option3LabelSelector = homePage.option3Label;
+  const voteButtonSelector = homePage.voteButton;
+
+  await t
+    .click(questionInputSelector)
+    .typeText(questionInputSelector, "What is your favorite coding language?")
+
+    .click(options1InputSelector)
+    .pressKey(
+      "backspace backspace backspace backspace backspace backspace backspace backspace"
+    )
+    .typeText(options1InputSelector, "Java Script")
+    .click(options2InputSelector)
+    .pressKey(
+      "backspace backspace backspace backspace backspace backspace backspace backspace"
+    )
+    .typeText(options2InputSelector, "HTML")
+
+    .click(option2LabelSelector)
+    .click(voteButtonSelector)
+    .click(option1LabelSelector)
+    .click(voteButtonSelector)
+    .click(option2LabelSelector)
+    .click(voteButtonSelector)
+    .click(addButtonOption2Selector)
+    .click(options3InputSelector)
+    .typeText(options3InputSelector, "SASS")
+    .click(option3LabelSelector)
+    .click(voteButtonSelector)
+    .click(option2LabelSelector)
+    .click(voteButtonSelector)
+    .wait(3000);
+});

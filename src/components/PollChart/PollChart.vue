@@ -2,6 +2,7 @@
   <div class="card">
     <div class="card-body">
       <Bar
+        test-data-id="bar-component"
         :chart-options="chartOptions"
         :chart-data="chartData"
         :width="width"

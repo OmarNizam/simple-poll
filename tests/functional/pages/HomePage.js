@@ -63,6 +63,14 @@ export default class HomePage {
 
     this.resetButton = Selector('[test-data-id="reset-button"]');
 
+    // Vote Button
+
+    this.voteButton = Selector('[test-data-id="vote-button"]');
+
+    // Chart component
+
+    this.pollChart = Selector('[test-data-id="bar-component"]');
+
     // test data
 
     this.testData = {

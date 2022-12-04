@@ -28,6 +28,7 @@
       </div>
       <div class="d-flex justify-content-end">
         <button
+          test-data-id="vote-button"
           class="btn mt-2 bg-success text-light"
           @click="vote(choiceIndex)"
         >
