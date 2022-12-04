@@ -10,6 +10,7 @@
         :key="k"
       >
         <input
+          :test-data-id="`option-radio-${k}`"
           :id="`optionRadio-${k}`"
           class="form-check-input"
           type="radio"
@@ -17,7 +18,11 @@
           :value="`${k}`"
           v-model="choiceIndex"
         />
-        <label class="form-check-label" :for="`optionRadio-${k}`">
+        <label
+          :test-data-id="`option-label-${k}`"
+          class="form-check-label"
+          :for="`optionRadio-${k}`"
+        >
           {{ input }}
         </label>
       </div>

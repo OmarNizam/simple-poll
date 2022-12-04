@@ -21,7 +21,11 @@
           @input="handleQuestion"
           required
         />
-        <span class="text-danger" v-if="msg.question">
+        <span
+          test-data-id="question-input-validation"
+          class="text-danger"
+          v-if="msg.question"
+        >
           {{ msg.question }}
         </span>
       </div>
@@ -30,7 +34,7 @@
         >Poll Options:</label
       >
       <div v-for="(input, k) of options.slice(0, 10)" :key="k">
-        <div class="d-flex pt-3">
+        <div test-data-id="options-input" class="d-flex pt-3">
           <input
             type="text"
             class="form-control"
@@ -43,6 +47,7 @@
             required
           />
           <button
+            :test-data-id="`add-button-option-${k}`"
             class="btn ms-2 bg-success"
             @click="addOption"
             :disabled="chartXValues.length > 9"
@@ -67,7 +72,11 @@
             ></ion-icon>
           </button>
         </div>
-        <span class="text-danger" v-if="msg.option && k === optionIndex">
+        <span
+          :test-data-id="`option-input-validation-${k}`"
+          class="text-danger"
+          v-if="msg.option && k === optionIndex"
+        >
           {{ msg.option }}
         </span>
       </div>
