@@ -131,6 +131,34 @@ npm run lint
 
 Default home page:
 
-![Default Home](./src/assets/images/Readme/default-home.png)
+![Default Home](./src/assets/images/readme/default-home.png)
+
+Edit PollForm component with two options:
+
+- As you see that also other components get updated directly with the changes.
+
+![Poll Form Component with 2 options](./src/assets/images/readme/form-2-options.png)
+
+Form max options of 10 disable add button:
+
+![Poll Form Component with max options](./src/assets/images/readme/form-max-options.png)
+
+Delete option in the middle of options list
+
+![Poll Form Component with after delete Java option](./src/assets/images/readme/delete-java-option.png)
+
+After click reset button:
+
+![Default Home](./src/assets/images/readme/default-home.png)
+
+Question Input validation:
+
+![Question Validation Error](./src/assets/images/readme/question-validation-error.png)
+
+Options Input validation:
+
+![Option 2 Validation Error](./src/assets/images/readme/option-2-validation-error.png)
+
+![Option 4 Validation Error](./src/assets/images/readme/option-4-validation-error.png)
 
 [Back to top](#navigator)
