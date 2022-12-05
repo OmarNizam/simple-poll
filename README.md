@@ -169,7 +169,7 @@ Options Input validation:
 - Users can choose one of the option he sees on Poll Vote component then click on Vote button.
 - Users can vote as many as they want.
 
-  ![Poll Vote Component 3 options](./src/assets/images/Readme/vote-3-options.png)
+  ![Poll Vote Component 3 options](./src/assets/images/readme/vote-3-options.png)
 
 [Back to top](#navigator)
 
@@ -179,7 +179,7 @@ Options Input validation:
 - Bar Chart component watching data changes and get updated automatically with users and owner input data
 - PollChart component uses pinia store to interact and keep updated with options list and users votes.
 
-  ![Poll Vote Component and chart 10 options](./src/assets/images/Readme/vote-10-options.png)
+  ![Poll Vote Component and chart 10 options](./src/assets/images/readme/vote-10-options.png)
 
 [Back to top](#navigator)
 
@@ -247,7 +247,7 @@ The Show Simple Poll site was also tested using [Google Lighthouse](https://deve
 - Best Practices - Site conforms to industry best practices.
 - SEO - Search engine optimization. Is the site optimized for search engine result rankings.
 
-![Lighthouse test results Show home page](./src/assets/images/Readme/lighthouse.png)
+![Lighthouse test results Show home page](./src/assets/images/readme/lighthouse.png)
 
 [Back to top](#navigator)
 
