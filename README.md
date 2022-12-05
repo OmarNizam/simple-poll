@@ -60,7 +60,7 @@ npm run lint
   - [Responsiveness Test](#responsiveness-test)
   - [Browser Compatibility](#browser-compatibility)
   - [Lighthouse](#lighthouse)
-  - [Manual testing](#manual-testing)
+  - [Automation testing](#automation-testing)
   - [User stories testing](#user-stories-testing)
 - [**Deployment**](#deployment)
   - [To fork the repository on GitHub](#to-fork-the-repository-on-github)
@@ -248,5 +248,37 @@ The Show Simple Poll site was also tested using [Google Lighthouse](https://deve
 - SEO - Search engine optimization. Is the site optimized for search engine result rankings.
 
 ![Lighthouse test results Show home page](./src/assets/images/Readme/lighthouse.png)
+
+[Back to top](#navigator)
+
+## Automation testing
+
+[Back to top](#navigator)
+
+## User stories testing
+
+[Back to top](#navigator)
+
+## Deployment
+
+### To fork the repository on GitHub
+
+A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changes can be made to the copy without affecting the original repository. Take the following steps to fork the repository;
+
+1. Log in to **GitHub** and locate the [repository](https://github.com/OmarNizam/simple-poll).
+2. On the right-hand side of the page inline with the repository name, is a button called **'Fork'**. Click on the button to create a copy of the original repository in your GitHub Account.
+
+[Back to top](#navigator)
+
+## To create a local clone of this project
+
+The method for cloning a project from GitHub is below:
+
+1. Under the repository’s name, click on the **code** tab.
+2. In the **Clone with HTTPS** section, click on the clipboard icon to copy the given URL.
+3. In your IDE of choice, open **Git Bash**.
+4. Change the current working directory to where you want the cloned directory to be made.
+5. Type **git clone**, then paste the URL copied from GitHub.
+6. Press **enter**, and the local clone will be created.
 
 [Back to top](#navigator)
