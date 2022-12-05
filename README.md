@@ -61,7 +61,7 @@ npm run lint
   - [Browser Compatibility](#browser-compatibility)
   - [Lighthouse](#lighthouse)
   - [Automation testing](#automation-testing)
-  - [User stories testing](#user-stories-testing)
+  - [Future Improvements](#future-improvements)
 - [**Deployment**](#deployment)
   - [To fork the repository on GitHub](#to-fork-the-repository-on-github)
   - [To create a local clone of this project](#to-create-a-local-clone-of-this-project)
@@ -189,6 +189,8 @@ Options Input validation:
 
 # Technologies used
 
+_Note_: Unit testing technologies for vue and pinia will be part of future improvements, We have Automation testing using testCafe already.
+
 - [HTML5](https://html.spec.whatwg.org/) - provides the content and structure for the website.
 - [SCSS](https://sass-lang.com/) - provides the styling.
 - [Bootstrap 5](https://getbootstrap.com/) - for responsiveness and grid
@@ -253,9 +255,22 @@ The Show Simple Poll site was also tested using [Google Lighthouse](https://deve
 
 ## Automation testing
 
+- Implement testcafe javaScript tool for Automation testing
+- Add test fixtures for our app along with testing cases scenarios.
+- Test cafe is collecting screenshots along with creating functional testing reports.
+  use :
+
+```npm
+npm run ft
+```
+
 [Back to top](#navigator)
 
-## User stories testing
+## Future Improvements
+
+- Add Unit testing for application components using the exist libraries (JEST, @vue/test-utils).
+- Add Unit testing for pinia store.
+- Fix (bug) for first option input max 80 error message (text) not showing but the validation is working fine.
 
 [Back to top](#navigator)
 
